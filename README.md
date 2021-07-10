@@ -1,0 +1,2 @@
+# pythonfromscratch
+Reading for fun.
