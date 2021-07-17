@@ -265,7 +265,7 @@ The application should use text boxes to allow the user to enter the starting nu
 isms, the average daily population increase (as a percentage), and the number of days the
 organisms will be left to multiply. For example, assume the user enters the following values:
 """
-
+"""
 # starting amount of organisms in the populaion.
 start_num_of_organisms = int(input("Enter the start number of population: "))
 
@@ -275,23 +275,34 @@ average_daily_increase = int(input("Enter the percentage at which the population
 # Number of days to multiply 
 num_of_days_to_multi = int(input("Enter the number of days the population will mulitply: "))
 
+
 # Display title
 print("Day Approximate\tPopulation")
 
 # Population growth 
-population = 0
+population = start_num_of_organisms
 average_daily_increase = average_daily_increase / 100
 for n in range(num_of_days_to_multi): 
-    print(n + 1, "\t", start_num_of_organisms)
-    population = start_num_of_organisms **((average_daily_increase * n + 1))
-    start_num_of_organisms = population
-
+    print(n + 1,"\t",round(population, 2))
+    population += population * average_daily_increase
 """
-# This program displays a triangle pattern.
-BASE_SIZE = 8
-for r in range(BASE_SIZE, 1, -1):
-    for c in range(r - 1):
-        print('*', end='')
+# 14. Write a program that uses nested loops to draw this pattern:
+"""
+base_size = 8
+
+for star in range(base_size):
+    for row in range(base_size):
+        print("*", end="")
     print()
-
+    base_size -= 1
 """
+
+# 15. Write a program that uses nested loops to draw this pattern:
+
+base_size_2 = 5
+
+for pound in range(6):
+    print("#", end="", sep="")
+    for space in range(pound ): 
+        print(" ", end="", sep="")
+    print("#", sep="")

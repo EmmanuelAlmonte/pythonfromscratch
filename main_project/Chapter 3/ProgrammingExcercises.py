@@ -1,6 +1,5 @@
 #Programming exercises
 
-
 # 1. Number Analyser
 
 """
@@ -55,9 +54,10 @@ elif (length_of_rectangle[0] * width_of_rectangle[0]) < (length_of_rectangle[1] 
 else:
     print("They are both equal.")
 """
-"""
 
 # 3. Quarter of the Year
+
+"""
 Write a program that asks the user for a month as a number between 1 and 12. The
 program should display a message indicating whether the month is in the first quarter,
 the second quarter, the third quarter, or the fourth quarter of the year. Following are the
@@ -68,7 +68,6 @@ If the user enters a number between 4 and 6, the month is in the second quarter.
 If the number is either 7, 8, or 9, the month is in the third quarter.
 If the month is between 10 and 12, the month is in the fourth quarter.
 If the number is not between 1 and 12, the program should display an error.
-
 """
 """
 user_enter_month = int(input("Enter a month of the year (1-12): "))
@@ -86,8 +85,9 @@ else:
 """
 
 
-"""
 # 4. Roman Numerals
+"""
+
 Write a program that prompts the user to enter a number within the range of 1 through 10.
 The program should display the Roman numeral version of that number. If the number is
 outside the range of 1 through 10, the program should display an error message. The fol-
@@ -120,8 +120,11 @@ else:
     print("Not a number 1-10")
 
 """
+
+#5. Mass and Weight
+
 """
-5. Mass and Weight
+
 Scientists measure an object’s mass in kilograms and its weight in newtons. If you know
 the amount of mass of an object in kilograms, you can calculate its weight in newtons with
 the following formula:
@@ -166,7 +169,6 @@ else:
 
 """
 # 7. Grade Calculator
-
 """
 A class has two tests worth 25 points each along with a main exam worth 50 points. For a stu-
 dent to pass the class, they must obtain an overall score of at least 50 points, and must obtain at
@@ -184,8 +186,6 @@ the program should display the total points and the grade.
 """
 user_enter_grade = int(input("Enter you overall class score: "))
 user_enter_test_score = int(input("Enter your test score: "))
-
-
 
 if user_enter_grade < 50 or user_enter_test_score < 25:
     print("Fail!!")
@@ -314,22 +314,24 @@ else:
 """
 
 # 11. Book Club Points
-
 """
 Serendipity Booksellers has a book club that awards points to its customers based on the
 number of books purchased each month. The points are awarded as follows:
-books, he or she earns 0 points.
-books, he or she earns 5 points.
-books, he or she earns 15 points.
-books, he or she earns 30 points.
-or more books, he or she earns 60 points.
+
+
+if a customer purchases 0 books, he or she earns 0 points.
+if a customer purchases 2 books, he or she earns 5 points.
+if a customer purchases 4 books, he or she earns 15 points.
+if a customer purchases 6 books, he or she earns 30 points.
+if a customer purchases 8 or more books, he or she earns 60 points.
 Write a program that asks the user to enter the number of books that he or she has pur-
 chased this month, then displays the number of points awarded.
 """     
 
+# 11 is a dumb program.
 
-"""
 # 12. Software Sales
+"""
 A software company sells a package that retails for $99. Quantity discounts are given
 according to the following table:
 
@@ -337,16 +339,61 @@ according to the following table:
 Write a program that asks the user to enter the number of packages purchased. The pro-
 gram should then display the amount of the discount (if any) and the total amount of the
 purchase after the discount.
+"""
+"""
+quantity_of_items_purchased = int(input("Enter the quantity of software purchased: "))
 
+ten_percent_discount = 0.10
+twenty_percent_discount = .20
+thirty_percent_discount = .30
+forty_percent_discount = .40
 
+cost =  99
+
+if quantity_of_items_purchased >= 10 and quantity_of_items_purchased <= 19:
+    
+    print("The cost for {}, is {}".format(quantity_of_items_purchased, (quantity_of_items_purchased * cost - (quantity_of_items_purchased * cost * ten_percent_discount))))
+
+elif quantity_of_items_purchased >= 20 and quantity_of_items_purchased <= 49:
+    print("The cost for {}, is {}".format(quantity_of_items_purchased, (quantity_of_items_purchased * cost - (quantity_of_items_purchased * cost * twenty_percent_discount))))
+
+elif quantity_of_items_purchased >= 50 and quantity_of_items_purchased <= 99:
+    print("The cost for {}, is {}".format(quantity_of_items_purchased, (quantity_of_items_purchased * cost - (quantity_of_items_purchased * cost * thirty_percent_discount))))
+
+elif quantity_of_items_purchased >= 100:
+    print("The cost for {}, is {}".format(quantity_of_items_purchased, (quantity_of_items_purchased * cost - (quantity_of_items_purchased * cost * forty_percent_discount))))
+"""
 # 13. Shipping Charges
+"""
 The Fast Freight Shipping Company charges the following rates:
 
 Write a program that asks the user to enter the weight of a package then displays the ship-
 ping charges.
 
+"""
+"""
+weight_of_package = int(input("Enter the amount of weight for a package: "))
 
-14. Body Mass Index
+less_two_pound_rate = 1.50
+over_two_below_six_rate = 3.00
+over_six_below_ten_rate = 4.00
+over_ten = 4.75
+
+if weight_of_package > 0 and weight_of_package < 2:
+    print("Your shipping rate = {}".format(less_two_pound_rate * weight_of_package))
+
+elif weight_of_package >= 2 and weight_of_package <= 6:
+    print("Your shipping rate = {}".format(over_two_below_six_rate * weight_of_package))
+
+elif weight_of_package > 6 and weight_of_package <= 10:
+    print("Your shipping rate = {}".format(over_six_below_ten_rate * weight_of_package))
+elif weight_of_package > 10:
+    print("Your shipping rate = {}".format(over_ten * weight_of_package))
+
+"""
+
+# 14. Body Mass Index
+"""
 Write a program that calculates and displays a person’s body mass index (BMI). The BMI
 is often used to determine whether a person is overweight or underweight for his or her
 height. A person’s BMI is calculated with the following formula:
@@ -359,9 +406,12 @@ gram should also display a message indicating whether the person has optimal wei
 underweight, or is overweight. A person’s weight is considered to be optimal if his or her 
 BMI is between 18.5 and 25. If the BMI is less than 18.5, the person is considered to be
 underweight. If the BMI value is greater than 25, the person is considered to be overweight.
+"""
 
 
-15. Time Calculator
+
+# 15. Time Calculator
+"""
 Write a program that asks the user to enter a number of seconds and works as follows:
 • There are 60 seconds in a minute. If the number of seconds entered by the user is greater
 than or equal to 60, the program should convert the number of seconds to minutes and
@@ -393,10 +443,9 @@ else:
 print("Mins: {}\nSecs: {}\n Hours: {}\nDays: {}".format(minutes, secs, hour, days)) 
 """
 
+ 
+# 16. February Days
 """
-
-
-16. February Days
 The month of February normally has 28 days. But if it is a leap year, February has 29 days.
 Write a program that asks the user to enter a year. The program should then display the
 number of days in February that year. Use the following criteria to identify leap years:
@@ -407,6 +456,7 @@ For example, 2008 is a leap year, but 2009 is not.
 
 """
 
+"""
 enter_year = int(input("Enter a year: "))
 
 if enter_year % 100 == 0 and enter_year % 400 == 0:
@@ -415,7 +465,7 @@ elif enter_year % 100 != 0 and enter_year % 4 == 0:
     print("It is a leap year")
 else:
     print("It is not leap year")
-
+"""
  
 
 

@@ -362,14 +362,26 @@ Use the turtle graphics library to write programs that reproduce each of the des
 in Figure 2-34.
 
 """
-"""
-turtle.left(25)
-turtle.forward(75)
-turtle.right(90)
+# width and height of window.
+turtle.speed(0)
+WINDOW_WIDTH = 1000
+WINDOW_HEIGHT = 1000
+turtle.setup(WINDOW_WIDTH, WINDOW_HEIGHT)
+turtle.penup()
+# Creates two squares side by side.
+# The coordinates for the square.
+square_X = -400
+square_Y = 400
+
+turtle.goto(square_X, square_Y)
+turtle.pendown()
+turtle.hideturtle()
+turtle.left(10)
+turtle.right(60)
 turtle.forward(75)
 second_square_start = turtle.pos()
-print(turtle.xcor())
-print(turtle.ycor())
+turtle.right(90)
+turtle.forward(75)
 turtle.right(90)
 turtle.forward(75)
 turtle.right(90)
@@ -377,7 +389,7 @@ turtle.forward(75)
 turtle.penup()
 turtle.goto(second_square_start)
 turtle.pendown()
-turtle.left(-50)
+turtle.left(10)
 turtle.forward(75)
 turtle.right(90)
 turtle.forward(75)
@@ -385,11 +397,258 @@ turtle.right(90)
 turtle.forward(75)
 turtle.right(90)
 turtle.forward(75)
+square_bottom_X = turtle.xcor()
+
+# A triangle within a triangle.
+
+#triangle X and Y position.
+tri_X = -200
+tri_Y = 300
+
+turtle.penup()
+turtle.goto(tri_X, tri_Y)
+turtle.pendown()
+turtle.setheading(0)
+turtle.forward(100)
+# The X and Y coordinates for the base of the external triangle.
+tri_base_X = turtle.xcor()
+tri_base_Y = turtle.ycor()
+turtle.left(120)
+turtle.forward(100)
+turtle.left(120)
+turtle.forward(100)
+turtle.setheading(0)
+turtle.left(35)
+turtle.fillcolor("red")
+turtle.begin_fill()
+turtle.forward(60)
+turtle.setheading(0)
+turtle.goto(tri_base_X, tri_base_Y)
+turtle.end_fill()
+
+# Creates a Cuboid.
+
+square_degree = 90 
+square_length = 50
+turtle.penup()
+cuboid_X = -400
+cuboid_Y = 200 
+turtle.goto(cuboid_X, cuboid_Y)
+turtle.pendown()
+# First square.
+top_square_top_left_x = turtle.xcor()
+top_square_top_left_y = turtle.ycor()
+turtle.forward(square_length)
+turtle.right(square_degree)
+
+top_square_top_right_x = turtle.xcor()
+top_square_top_right_y = turtle.ycor()
+
+turtle.forward(square_length)
+turtle.right(square_degree)
+
+top_square_bottom_right_x = turtle.xcor()
+top_square_bottom_right_y = turtle.ycor()
+
+turtle.forward(square_length)
+turtle.right(square_degree)
+top_square_bottom_left_x = turtle.xcor()
+top_square_bottom_left_y = turtle.ycor()
+turtle.forward(square_length)
+
+# second square
+second_square_x = -350
+second_square_y = 150
+turtle.goto(second_square_x, second_square_y)
+bottom_square_top_left_x = turtle.xcor()
+bottom_square_top_left_y = turtle.ycor()
+turtle.setheading(0)
+turtle.forward(square_length)
+
+bottom_square_top_right_x = turtle.xcor()
+bottom_square_top_right_y = turtle.ycor()
+turtle.right(square_degree)
+turtle.forward(square_length)
+bottom_square_bottom_right_x = turtle.xcor()
+bottom_square_bottom_right_y = turtle.ycor()
+
+turtle.right(square_degree)
+turtle.forward(square_length)
+bottom_square_bottom_left_x = turtle.xcor()
+bottom_square_bottom_left_y = turtle.ycor()
+turtle.right(square_degree)
+turtle.forward(square_length)
+
+# Connectings the other three lines for the cuboid.
+# Connect the top right to bottom right square.
+turtle.penup()
+turtle.goto(top_square_top_right_x, top_square_top_right_y)
+turtle.pendown()
+turtle.goto(bottom_square_top_right_x, bottom_square_top_right_y)
+
+# connect the top_bottom_right with bottom_bottom_right
+turtle.penup()
+turtle.goto(top_square_bottom_right_x, top_square_bottom_right_y)
+turtle.pendown()
+turtle.goto(bottom_square_bottom_right_x, bottom_square_bottom_right_y)
+
+# Connect top_bottom_left with bottom_bottom_left.
+turtle.penup()
+turtle.goto(top_square_bottom_left_x, top_square_bottom_left_y)
+turtle.pendown()
+turtle.goto(bottom_square_bottom_left_x, bottom_square_bottom_left_y)
+
+
+# Multiple circles
+circle_size = 30
+main_circle_x = -200 
+main_circle_y = 200
+turtle.penup()
+turtle.goto(main_circle_x, main_circle_y)
+turtle.pendown()
+turtle.circle(circle_size)
+first_bottom_circle_x = (main_circle_x + 45) 
+first_bottom_circle_y = (main_circle_y - 20)
+turtle.penup()
+turtle.goto(first_bottom_circle_x, first_bottom_circle_y)
+turtle.pendown()
+turtle.circle(circle_size)
+second_top_circle_x = (main_circle_x + 90)
+second_top_circle_y = (main_circle_y)
+turtle.penup()
+turtle.goto(second_top_circle_x, second_top_circle_y)
+turtle.pendown()
+turtle.circle(circle_size)
+turtle.penup()
+second_bottom_circle_x = (first_bottom_circle_x + 90) 
+second_bottom_circle_y = (first_bottom_circle_y) 
+turtle.goto(second_bottom_circle_x, second_bottom_circle_y)
+turtle.pendown()
+turtle.circle(circle_size)
+turtle.penup()
+third_top_circle_x = (second_top_circle_x + 90)
+third_top_circle_y = second_top_circle_y 
+turtle.goto(third_top_circle_x, third_top_circle_y)
+turtle.pendown()
+turtle.circle(circle_size)
+
+#compass
+
+compass_degree = 90
+compass_length = 50
+compass_position_x = -350
+compass_position_y = -100
+turtle.penup()
+# up
+turtle.goto(compass_position_x, compass_position_y)
+turtle.pendown()
+turtle.setheading(compass_degree)
+turtle.forward(compass_length)
+turtle.write("North")
+
+# reposition and left
+turtle.goto(compass_position_x, compass_position_y)
+turtle.left(compass_degree)
+turtle.forward(compass_length)
+turtle.write("West")
+
+# reposition and right
+turtle.goto(compass_position_x, compass_position_y)
+turtle.setheading(0)
+turtle.forward(compass_length)
+turtle.write("East")
+
+# reposition and bottom
+turtle.goto(compass_position_x, compass_position_y)
+turtle.right(compass_degree)
+turtle.forward(compass_length)
+turtle.write("South")
+# draw circle
+turtle.penup()
+turtle.goto(compass_position_x -10, compass_position_y)
+turtle.pendown()
+turtle.circle(circle_size -20)
+
+# square with dots and spaces
+turtle.penup() 
+special_square_x = -200
+special_square_y = -100
+special_square_small_dash = 10
+special_square_space = 25
+special_square_length = 150
+special_square_big_dash = 40
+special_square_degree = 90
+
+
+# Top line 
+turtle.goto(special_square_x, special_square_y)
+turtle.pendown()
+turtle.setheading(0)
+turtle.dot()
+turtle.forward(special_square_small_dash)
+turtle.penup()
+turtle.forward(special_square_space)
+turtle.pendown()
+turtle.forward(special_square_big_dash)
+turtle.penup()
+turtle.forward(special_square_space)
+turtle.pendown()
+turtle.forward(special_square_big_dash)
+turtle.penup()
+turtle.forward(special_square_space)
+turtle.pendown()
+turtle.forward(special_square_small_dash)
+special_square_top_right_x = turtle.xcor() 
+special_square_top_right_y = turtle.ycor()
+turtle.dot()
+
+# right side
+turtle.right(special_square_degree)
+turtle.forward(special_square_length)
+turtle.dot()
+
+# bottom line 
+bottom_line_right_x = turtle.xcor()
+bottom_line_right_y = turtle.ycor()
+
+turtle.right(special_square_degree)
+turtle.forward(special_square_small_dash)
+turtle.penup()
+turtle.forward(special_square_space)
+turtle.pendown()
+turtle.forward(special_square_big_dash)
+turtle.penup()
+turtle.forward(special_square_space)
+turtle.pendown()
+turtle.forward(special_square_big_dash)
+turtle.penup()
+turtle.forward(special_square_space)
+turtle.pendown()
+turtle.forward(special_square_small_dash)
+bottom_line_left_x = turtle.xcor()
+bottom_line_left_y = turtle.ycor()
+turtle.dot()
+
+# right line 
+turtle.right(special_square_degree)
+turtle.forward(special_square_length)
+turtle.dot()
+turtle.goto((special_square_x + 90 ), (special_square_y * 1.8))
+
+turtle.penup()
+turtle.goto(bottom_line_left_x, bottom_line_left_y)
+turtle.pendown()
+
+turtle.goto((special_square_x + 90 ), (special_square_y * 1.8))
+
+turtle.dot()
+turtle.penup()
+turtle.goto(bottom_line_right_x, bottom_line_right_y)
+turtle.pendown()
+turtle.goto((special_square_x + 90 ), (special_square_y * 1.8))
+turtle.penup()
+turtle.goto(special_square_top_right_x, special_square_top_right_y)
+turtle.pendown()
+turtle.goto((special_square_x + 90 ), (special_square_y * 1.8))
+
 turtle.mainloop()
-
-"""
-
-
-
-
-
